@@ -62,11 +62,11 @@ function PidControl() {
       updateStatus(`应用失败: ${error.message}`, false)
     }
   }
-  const savePID = async (p, i, d) => {
+  const savePID = async (kp, ki, kd) => {
     await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/pid`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ p, i, d })
+      body: JSON.stringify({ kp, ki, kd })
     });
   };
   const resetPidSettings = () => {
